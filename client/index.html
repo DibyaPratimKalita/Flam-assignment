@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Collaborative Canvas</title>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<div class="app">
+			<header class="topbar">
+				<div class="brand">Collaborative Canvas</div>
+				<div class="room">
+					<label>Room:</label>
+					<input id="roomId" value="default">
+					<label>Name:</label>
+					<input id="displayName" placeholder="Your name">
+					<button id="joinBtn">Join</button>
+				</div>
+				<div class="actions">
+					<button id="undoBtn" title="Ctrl+Z">Undo</button>
+					<button id="redoBtn" title="Ctrl+Y">Redo</button>
+				</div>
+			</header>
+
+			<aside class="sidebar">
+				<div class="tool-group">
+					<div class="section-title">Tool</div>
+					<button data-tool="brush" class="tool active">Brush</button>
+					<button data-tool="eraser" class="tool">Eraser</button>
+				</div>
+				<div class="tool-group">
+					<div class="section-title">Color</div>
+					<input type="color" id="colorPicker" value="#2f80ed">
+				</div>
+				<div class="tool-group">
+					<div class="section-title">Size</div>
+					<input type="range" id="sizePicker" min="1" max="40" value="6">
+				</div>
+				<div class="tool-group">
+					<div class="section-title">Users Online</div>
+					<ul id="usersList"></ul>
+				</div>
+			</aside>
+
+			<main class="workspace">
+				<canvas id="canvas"></canvas>
+				<div id="cursorsLayer"></div>
+			</main>
+		</div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./websocket.js"></script>
+		<script src="./canvas.js"></script>
+		<script src="./main.js"></script>
+	</body>
+	</html>
+
+

@@ -1,0 +1,32 @@
+{
+  "name": "collaborative-canvas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time collaborative drawing canvas (vanilla JS + Node + WebSockets)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js",
+    "build": "node scripts/build.js",
+    "start:prod": "npm run build && node server/server.js",
+    "strip:comments": "node scripts/strip-comments.js",
+    "strip:comments:all": "INCLUDE_NODE_MODULES=true node scripts/strip-comments.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.4.5",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.36.0"
+  }
+}
+
+
