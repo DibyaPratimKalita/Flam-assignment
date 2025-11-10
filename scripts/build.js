@@ -12,10 +12,8 @@ async function build() {
 
 	await fs.emptyDir(dist);
 
-	// Copy everything first, then overwrite with minified assets
 	await fs.copy(client, dist);
 
-	// Minify HTML
 	const htmlFiles = glob.sync('**/*.html', { cwd: dist, nodir: true });
 	for (const file of htmlFiles) {
 		const p = path.join(dist, file);
@@ -29,7 +27,6 @@ async function build() {
 		await fs.writeFile(p, out, 'utf8');
 	}
 
-	// Minify CSS
 	const cssFiles = glob.sync('**/*.css', { cwd: dist, nodir: true });
 	for (const file of cssFiles) {
 		const p = path.join(dist, file);
@@ -38,7 +35,6 @@ async function build() {
 		await fs.writeFile(p, out, 'utf8');
 	}
 
-	// Minify JS (strip comments)
 	const jsFiles = glob.sync('**/*.js', { cwd: dist, nodir: true });
 	for (const file of jsFiles) {
 		const p = path.join(dist, file);
